@@ -1,0 +1,281 @@
+{
+    "signal": [
+        {
+            "name": "tb_processor/clk",
+            "wave": "01010101010101010101010101010",
+            "data": []
+        },
+        {
+            "name": "tb_processor/resetn",
+            "wave": "0.1..........................",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/clk",
+            "wave": "01010101010101010101010101010",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/pcSrc",
+            "wave": "x0.......................x...",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/resetn",
+            "wave": "0.1..........................",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/zero",
+            "wave": "x1.0.....1.x.0...x...0...x...",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/regWriteData",
+            "wave": "x=.=.=.=.=.x.=.x.x.x.=.x.=.x.",
+            "data": [
+                "0x5",
+                "0xa",
+                "0xf",
+                "0xa",
+                "0x0",
+                "0x0",
+                "0x0",
+                "0x0"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/regWrite",
+            "wave": "x1...........0.1.....0.1.0.x.",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/reg2data",
+            "wave": "x=.=.=.=.....x.=.=.=.x.x.x.x.",
+            "data": [
+                "0x0",
+                "0x5",
+                "0xa",
+                "0x5",
+                "0xa",
+                "0x5",
+                "0xa"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/pc_next",
+            "wave": "x=.=.=.=.=.=.=.=.=.=.=.=.x.x.",
+            "data": [
+                "0x4",
+                "0x8",
+                "0xc",
+                "0x10",
+                "0x14",
+                "0x18",
+                "0x1c",
+                "0x20",
+                "0x24",
+                "0x28",
+                "0x2c",
+                "0x30"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/pc_add_imm",
+            "wave": "x=.=.=.=.=.=.=.=...=.=.=.=.x.",
+            "data": [
+                "0x0",
+                "0x4",
+                "0x8",
+                "0xc",
+                "0x10",
+                "0x14",
+                "0x1c",
+                "0x20",
+                "0x24",
+                "0x30",
+                "0x34",
+                "0x30"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/pc_add_4",
+            "wave": "x=.=.=.=.=.=.=.=.=.=.=.=.=.x.",
+            "data": [
+                "0x4",
+                "0x8",
+                "0xc",
+                "0x10",
+                "0x14",
+                "0x18",
+                "0x1c",
+                "0x20",
+                "0x24",
+                "0x28",
+                "0x2c",
+                "0x30",
+                "0x34"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/pc",
+            "wave": "x=.=.=.=.=.=.=.=.=.=.=.=.=.x.",
+            "data": [
+                "0x0",
+                "0x4",
+                "0x8",
+                "0xc",
+                "0x10",
+                "0x14",
+                "0x18",
+                "0x1c",
+                "0x20",
+                "0x24",
+                "0x28",
+                "0x2c",
+                "0x30"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/memory_data",
+            "wave": "x=.=...........x.=.....x.=.x.",
+            "data": [
+                "0x5",
+                "0x0",
+                "0x0",
+                "0x0"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/memWrite",
+            "wave": "x0...........1.0.....1.0...x.",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/memToReg",
+            "wave": "x1.0.........1...0...1.....x.",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/memRead",
+            "wave": "x1.0...........1.0.....1.0.x.",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/instruction",
+            "wave": "x=.=.=.=.=.=.=.=.=.=.=.=.=.x.",
+            "data": [
+                "0x2083",
+                "0x108133",
+                "0x2081b3",
+                "0x40118233",
+                "0x1272b3",
+                "0x136333",
+                "0x602223",
+                "0x402383",
+                "0x4013a433",
+                "0x24e4b3",
+                "0x902423",
+                "0x802503",
+                "0x950a63"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/immediate",
+            "wave": "x=...........=...=...=...=.x.",
+            "data": [
+                "0x0",
+                "0x4",
+                "0x0",
+                "0x8",
+                "0x0"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/branch",
+            "wave": "x0.......................1.x.",
+            "data": []
+        },
+        {
+            "name": "tb_processor/processor/alu_result",
+            "wave": "x=.=.=.=.=.x.=...x.x.=...x...",
+            "data": [
+                "0x0",
+                "0xa",
+                "0xf",
+                "0xa",
+                "0x0",
+                "0x4",
+                "0x8"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/alu_op_sel",
+            "wave": "x=.=.........=...=...=...=.x.",
+            "data": [
+                "0x0",
+                "0x2",
+                "0x0",
+                "0x2",
+                "0x0",
+                "0x1"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/alu_op2",
+            "wave": "x=.=.=.=.....=...=.=.=...x.x.",
+            "data": [
+                "0x0",
+                "0x5",
+                "0xa",
+                "0x5",
+                "0x4",
+                "0x5",
+                "0xa",
+                "0x8"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/alu_op1",
+            "wave": "x=.=...=.=.x.=...x.x.=...x.x.",
+            "data": [
+                "0x0",
+                "0x5",
+                "0xf",
+                "0xa",
+                "0x0",
+                "0x0"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/alu_op",
+            "wave": "x=.....=.=...=...=.=.=...=.x.",
+            "data": [
+                "0x2",
+                "0x6",
+                "0x0",
+                "0x2",
+                "0x6",
+                "0x0",
+                "0x2",
+                "0x6"
+            ]
+        },
+        {
+            "name": "tb_processor/processor/aluSrc",
+            "wave": "x1.0.........1...0...1...0.x.",
+            "data": []
+        }
+    ],
+    "config": {
+        "hscale": 1
+    },
+    "head": {
+        "text": "Jeff's Wavedrom JSON Output",
+        "tick": 0,
+        "every": 1
+    },
+    "foot": {
+        "text": "Timestep: 5"
+    }
+}
