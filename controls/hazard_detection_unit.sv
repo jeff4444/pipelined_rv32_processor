@@ -11,14 +11,14 @@ module hazard_detection_unit (
 );
 
     always @(*) begin
-        pcWrite = 0;
-        ifIdWrite = 0;
+        pcWrite = 1;
+        ifIdWrite = 1;
         selectNOP = 0;
         IFflush = 0;
 
         if (memReadEx && (rd_ex != 0) && ((rd_ex == rs1_id) || (rd_ex == rs2_id))) begin
-            pcWrite = 1;
-            ifIdWrite = 1;
+            pcWrite = 0;
+            ifIdWrite = 0;
             selectNOP = 1;
         end
 

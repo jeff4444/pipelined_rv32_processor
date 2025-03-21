@@ -20,10 +20,14 @@ module instruction_decode (
     output [31:0] rs2Data,
     output registersIsEqual
 );
+    wire [31:0] immediate;
+
     assign rs1 = instruction[19:15];
     assign rs2 = instruction[24:20];
     assign rd = instruction[11:7];
     assign registersIsEqual = (instruction[19:15] == instruction[24:20]);
+    assign pc_plus_imm = pc + immediate;
+    assign imm = immediate;
 
     registers regFile1 (
         .clk(clk),
@@ -39,7 +43,7 @@ module instruction_decode (
 
     immediate_gen imm1 (
         .instruction(instruction),
-        .immediate(imm)
+        .immediate(immediate)
     );
     
 endmodule

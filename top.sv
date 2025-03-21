@@ -103,6 +103,4 @@ module top (
         .forwardA(forwardA),
         .forwardB(forwardB)
     );
-
-
 endmodule

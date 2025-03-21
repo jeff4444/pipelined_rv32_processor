@@ -16,8 +16,8 @@ module instruction_fetch (
     assign pc_out = pc_out_reg;
 
     mux_2_to_1 mux (
-        .op1(pc_plus_imm),
-        .op2(pc_plus_4),
+        .op1(pc_plus_4),
+        .op2(pc_plus_imm),
         .sel(pcSrc),
         .out(pc)
     );

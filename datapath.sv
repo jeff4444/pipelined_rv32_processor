@@ -99,6 +99,7 @@ module datapath (
     assign rs2Id = rs2_id;
     assign rdEx = rd_ex;
     assign pcsrc = pcSrc;
+    assign instruction = instruction_id;
 
     // if stage
     instruction_fetch if1 (
@@ -136,7 +137,8 @@ module datapath (
         .imm(imm_id),
         .rs1Data(rs1_data_id),
         .rs2Data(rs2_data_id),
-        .registersIsEqual(registersIsEqual)
+        .registersIsEqual(registersIsEqual),
+        .pc_plus_imm(pc_plus_imm)
     );
 
     id_ex id_ex1 (
@@ -144,6 +146,7 @@ module datapath (
         .resetn(resetn),
         .rs1(rs1_id),
         .rs2(rs2_id),
+        .rd(rd_id),
         .imm(imm_id),
         .rs1Data(rs1_data_id),
         .rs2Data(rs2_data_id),

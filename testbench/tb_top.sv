@@ -43,9 +43,15 @@ module tb_top ();
     initial begin
         // Initialize Inputs
         clk = 0;
-        rstn = 1;
-        #10 rstn = 0;
-        #20;
+        rstn = 0;
+        #10 rstn = 1;
+        #200;
         $finish;
+    end
+
+    // dump waveforms
+    initial begin
+        $dumpfile("tb_top.vcd");
+        $dumpvars(0, tb_top);
     end
 endmodule
