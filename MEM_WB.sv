@@ -10,7 +10,7 @@ module mem_wb (
     // output signals
     output reg [31:0] readDataOut,
     output reg [31:0] aluResultOut,
-    output reg [4:0] rdOut
+    output reg [4:0] rdOut,
 
     // output control signals for wb
     output reg memToRegOut,

@@ -9,7 +9,7 @@ module access_memory (
     input memWrite,
 
     // output signals
-    output [31:0] readData,
+    output [31:0] readData
 );
     data_memory dm1 (
         .clk(clk),

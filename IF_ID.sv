@@ -10,13 +10,13 @@ module if_id (
 );
 
     // Always block
-    always_ff @(posedge clk) begin
+    always @(posedge clk) begin
         if (!resetn || IFflush) begin
             pc_out <= 32'h0;
             instruction_out <= 32'h0;
         end else begin
             if (ifIdWrite) begin
-                pc_reg <= pc;
+                pc_out <= pc;
                 instruction_out <= instruction;
             end
         end

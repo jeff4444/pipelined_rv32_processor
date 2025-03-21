@@ -1,21 +1,21 @@
 module top (
     input clk,
-    input resetn,
+    input resetn
 );
     // control signals for if stage
     wire branch;
-    wire instruction;
+    wire [31:0] instruction;
 
     // signals for id stage
-    wire [4:0] rs1_id,
-    wire [4:0] rs2_id,
+    wire [4:0] rs1_id;
+    wire [4:0] rs2_id;
 
     // control signals for ex stage
     wire ALUSrc;
     wire [3:0] ALUOp;
     wire [1:0] ALUOpSel;
     wire memReadEx;
-    wire [31:0] rd_ex,
+    wire [4:0] rd_ex;
 
     // control signals for mem stage
     wire memRead;
@@ -33,8 +33,8 @@ module top (
     wire IFflush;
     wire pcSrc;
 
-    wire [31:0] rs1_ex;
-    wire [31:0] rs2_ex;
+    wire [4:0] rs1_ex;
+    wire [4:0] rs2_ex;
     wire [4:0] rd_mem;
     wire [4:0] rd_wb;
     wire regWriteMem;
@@ -55,7 +55,7 @@ module top (
         .memToReg(memToReg),
         .regWrite(regWrite),
         .pcWrite(pcWrite),
-        .ifIdWrite(ifIdWrite)
+        .ifIdWrite(ifIdWrite),
         .instruction(instruction),
         .memReadExOut(memReadEx),
         .rs1Id(rs1_id),
@@ -66,7 +66,7 @@ module top (
 
     alu_control alu_ctrl (
         .instruction(instruction),
-        .alu_op_sel(ALUOp),
+        .alu_op_sel(ALUOpSel),
         .alu_op(ALUOp)
     );
 

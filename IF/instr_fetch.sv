@@ -5,12 +5,12 @@ module instruction_fetch (
     input pcSrc,
     input pcWrite,
     output [31:0] pc_out,
-    output reg [31:0] instruction_out
+    output [31:0] instruction_out
 );
 
     wire [31:0] pc;
-    reg [31:0] pc_out_reg;
-    wire pc_plus_4;
+    wire [31:0] pc_out_reg;
+    wire [31:0] pc_plus_4;
 
     assign pc_plus_4 = pc_out_reg + 32'h4;
     assign pc_out = pc_out_reg;

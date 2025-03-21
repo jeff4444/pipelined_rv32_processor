@@ -12,6 +12,7 @@ module program_counter (
         end else begin
             if (pcWrite) begin
                 pc_prev <= pc_next;
+            end
         end
     end
     

@@ -20,9 +20,9 @@ module id_ex (
     output reg [31:0] immOut,
     output reg [31:0] rs1DataOut,
     output reg [31:0] rs2DataOut,
-    output reg [31:0] rs1Out,
-    output reg [31:0] rs2Out,
-    output reg [31:0] rdOut,
+    output reg [4:0] rs1Out,
+    output reg [4:0] rs2Out,
+    output reg [4:0] rdOut,
 
     // output control signals for ex, mem and wb
     output reg ALUSrcOut,
@@ -30,7 +30,7 @@ module id_ex (
     output reg memReadOut,
     output reg memWriteOut,
     output reg memToRegOut,
-    output reg regWriteOut,
+    output reg regWriteOut
 );
     
     always @(posedge clk) begin

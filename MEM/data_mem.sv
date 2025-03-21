@@ -5,7 +5,7 @@ module data_memory (
     input [31:0] writeData,
     input writeEnable,
     input readEnable,
-    output [31:0] readData
+    output reg [31:0] readData
 );
     
     reg [7:0] mem [0:1023];

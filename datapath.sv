@@ -21,10 +21,10 @@ module datapath (
 
     // signals from hazard detection unit for stalling
     input pcWrite,
-    input ifIdWrite
+    input ifIdWrite,
 
     // outputs
-    output [31:0] instruction
+    output [31:0] instruction,
     output memReadExOut,
     output [4:0] rs1Id,
     output [4:0] rs2Id,
@@ -49,14 +49,14 @@ module datapath (
     wire registersIsEqual;
 
     // control signals for ex stage
-    wire ALUSrcEx,
-    wire [3:0] ALUOpEx,
+    wire ALUSrcEx;
+    wire [3:0] ALUOpEx;
 
     // control signals for mem stage from ex stage
-    wire memReadEx,
-    wire memWriteEx,
-    wire memToRegEx,
-    wire regWriteEx,
+    wire memReadEx;
+    wire memWriteEx;
+    wire memToRegEx;
+    wire regWriteEx;
 
     // signals for ex stage
     wire [4:0] rs1_ex;
@@ -69,10 +69,10 @@ module datapath (
     wire [31:0] aluOperand2;
 
     // control signals for mem stage from ex stage
-    wire memReadMem,
-    wire memWriteMem,
-    wire memToRegMem,
-    wire regWriteMem,
+    wire memReadMem;
+    wire memWriteMem;
+    wire memToRegMem;
+    wire regWriteMem;
 
     // signals for mem stage
     wire [4:0] rd_mem;
@@ -81,8 +81,8 @@ module datapath (
     wire [31:0] aluOperand2Mem;
 
     // control signals for wb stage from mem stage
-    wire memToRegWb,
-    wire regWriteWb,
+    wire memToRegWb;
+    wire regWriteWb;
 
     // signals for wb stage
     wire [31:0] readDataWb;
@@ -104,7 +104,7 @@ module datapath (
     instruction_fetch if1 (
         .clk(clk),
         .resetn(resetn),
-        .pcSrc(pcSrc)
+        .pcSrc(pcSrc),
         .pcWrite(pcWrite),
         .pc_plus_imm(pc_plus_imm),
         .pc_out(pc_if),
@@ -114,7 +114,7 @@ module datapath (
     if_id if_id1 (
         .clk(clk),
         .resetn(resetn),
-        .pc(pc),
+        .pc(pc_if),
         .ifIdWrite(ifIdWrite),
         .instruction(instruction_if),
         .pc_out(pc_id),
@@ -130,8 +130,8 @@ module datapath (
         .regWriteData(writeData),
         .writeReg(rd_wb),
         .regWrite(regWrite),
-        .rs1(rs1),
-        .rs2(rs2),
+        .rs1(rs1_id),
+        .rs2(rs2_id),
         .rd(rd_id),
         .imm(imm_id),
         .rs1Data(rs1_data_id),
@@ -152,7 +152,7 @@ module datapath (
         .memRead(memRead),
         .memWrite(memWrite),
         .memToReg(memToReg),
-        .regWrite(regWrite)
+        .regWrite(regWrite),
         .immOut(imm_ex),
         .rs1DataOut(rs1_data_ex),
         .rs2DataOut(rs2_data_ex),
@@ -176,7 +176,7 @@ module datapath (
         .imm(imm_ex),
         .selOp1(selOp1),
         .selOp2(selOp2),
-        .aluResult(aluResult),
+        .aluResultWb(aluResultWb),
         .wbResult(writeData),
         .ALUSrc(ALUSrcEx),
         .ALUOp(ALUOpEx),
@@ -236,7 +236,7 @@ module datapath (
         .readData(readDataWb),
         .aluResult(aluResultWb),
         .memToReg(memToRegWb),
-        .writeData(writeData),
+        .writeData(writeData)
     );
     
 endmodule
