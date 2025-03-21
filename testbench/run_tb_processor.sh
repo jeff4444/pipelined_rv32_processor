@@ -1,5 +1,0 @@
-#!/bin/bash
-
-iverilog -o ./outputs/simulator.vvp tb_processor.sv
-vvp ./outputs/simulator.vvp
-~/bin/jeff_wave tb_processor.vcd --svg -p tb_processor/clk tb_processor/resetn tb_processor/processor/clk tb_processor/processor/pcSrc tb_processor/processor/resetn tb_processor/processor/zero tb_processor/processor/regWriteData tb_processor/processor/regWrite tb_processor/processor/reg2data tb_processor/processor/pc_next tb_processor/processor/pc_add_imm tb_processor/processor/pc_add_4 tb_processor/processor/pc tb_processor/processor/memory_data tb_processor/processor/memWrite tb_processor/processor/memToReg tb_processor/processor/memRead tb_processor/processor/instruction tb_processor/processor/immediate tb_processor/processor/branch tb_processor/processor/alu_result tb_processor/processor/alu_op_sel tb_processor/processor/alu_op2 tb_processor/processor/alu_op1 tb_processor/processor/alu_op tb_processor/processor/aluSrc
