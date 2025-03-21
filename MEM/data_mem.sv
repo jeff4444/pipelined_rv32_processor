@@ -30,6 +30,9 @@ module data_memory (
             end
         end
     end
+
+    always @(negedge clk) begin
+        readData <= readEnable ? {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]} : 32'b0;
+    end
     
-    assign readData = readEnable ? {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]} : 32'b0;
 endmodule

@@ -22,10 +22,8 @@ module hazard_detection_unit (
 
     if (pcSrc) begin
         IFflush = 1;
+        selectNOP = 1;
     end else begin
         IFflush = 0;
     end
-
-
-
 endmodule

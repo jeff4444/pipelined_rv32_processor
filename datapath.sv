@@ -7,7 +7,7 @@ module datapath (
 
     // control signals for ex stage
     input ALUSrc,
-    input [1:0] ALUOp,
+    input [3:0] ALUOp,
     input [1:0] selOp1,
     input [1:0] selOp2,
 
@@ -22,6 +22,14 @@ module datapath (
     // signals from hazard detection unit for stalling
     input pcWrite,
     input ifIdWrite
+
+    // outputs
+    output [31:0] instruction
+    output memReadExOut,
+    output [4:0] rs1Id,
+    output [4:0] rs2Id,
+    output [4:0] rdEx,
+    output pcsrc
 );
 
     // signals for if stage
@@ -42,7 +50,7 @@ module datapath (
 
     // control signals for ex stage
     wire ALUSrcEx,
-    wire [1:0] ALUOpEx,
+    wire [3:0] ALUOpEx,
 
     // control signals for mem stage from ex stage
     wire memReadEx,
@@ -85,6 +93,12 @@ module datapath (
     wire pcSrc;
 
     assign pcSrc = branch & registersIsEqual;
+
+    assign memReadExOut = memReadEx;
+    assign rs1Id = rs1_id;
+    assign rs2Id = rs2_id;
+    assign rdEx = rd_ex;
+    assign pcsrc = pcSrc;
 
     // if stage
     instruction_fetch if1 (

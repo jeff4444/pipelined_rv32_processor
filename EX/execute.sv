@@ -14,7 +14,7 @@ module instruction_execute (
 
     // input control signals for ex
     input ALUSrc,
-    input [1:0] ALUOp
+    input [3:0] ALUOp
 
     // output signals
     output [31:0] aluResult,

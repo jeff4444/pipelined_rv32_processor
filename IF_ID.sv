@@ -4,14 +4,15 @@ module if_id (
     input [31:0] pc,
     input [31:0] instruction,
     input ifIdWrite,
+    input IFflush,
     output reg [31:0] pc_out,
     output reg [31:0] instruction_out
 );
 
     // Always block
     always_ff @(posedge clk) begin
-        if (!resetn) begin
-            pc_reg <= 32'h0;
+        if (!resetn || IFflush) begin
+            pc_out <= 32'h0;
             instruction_out <= 32'h0;
         end else begin
             if (ifIdWrite) begin

@@ -9,7 +9,7 @@ module id_ex (
     input [31:0] rs2Data,
     // control signals for ex stage
     input ALUSrc,
-    input [1:0] ALUOp,
+    input [3:0] ALUOp,
     // control signals for mem stage
     input memRead,
     input memWrite,
@@ -26,7 +26,7 @@ module id_ex (
 
     // output control signals for ex, mem and wb
     output reg ALUSrcOut,
-    output reg [1:0] ALUOpOut,
+    output reg [3:0] ALUOpOut,
     output reg memReadOut,
     output reg memWriteOut,
     output reg memToRegOut,
