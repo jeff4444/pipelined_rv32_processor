@@ -22,7 +22,7 @@ module forwarding_unit(
             end
         end
 
-        if (regWriteWb && rd_wb != 0) begin
+        if (regWriteWb && !regWriteMem && rd_wb != 0) begin
             if (rd_wb == rs1_ex) begin
                 forwardA = 2'b01;
             end

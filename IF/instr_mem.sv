@@ -2,7 +2,7 @@ module intruction_memory (
     input clk,
     input resetn,
     input [31:0] address,
-    output [31:0] instruction 
+    output reg [31:0] instruction 
 );
 
     reg [7:0] mem [0:1023];
@@ -16,7 +16,7 @@ module intruction_memory (
             // load instructions
             mem[0] <= 8'h83;
             mem[1] <= 8'h20;
-            mem[2] <= 8'h00;
+            mem[2] <= 8'h10;
             mem[3] <= 8'h00;
             mem[4] <= 8'h33;
             mem[5] <= 8'h81;
@@ -74,7 +74,8 @@ module intruction_memory (
         end
     end
 
-
-    assign instruction = {mem[address+3], mem[address+2], mem[address+1], mem[address]};
-    
+    always @ (negedge clk) begin
+        if (resetn)
+            instruction <= {mem[address+3], mem[address+2], mem[address+1], mem[address]};
+    end    
 endmodule

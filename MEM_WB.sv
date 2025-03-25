@@ -17,7 +17,7 @@ module mem_wb (
     output reg regWriteOut
 );
     
-    always @(posedge clk) begin
+    always @(posedge clk or negedge resetn) begin
         if(!resetn) begin
             readDataOut <= 0;
             aluResultOut <= 0;

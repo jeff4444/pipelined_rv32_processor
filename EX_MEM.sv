@@ -22,7 +22,7 @@ module ex_mem (
     output reg regWriteOut
 );
 
-    always @(posedge clk) begin
+    always @(posedge clk or negedge resetn) begin
         if(!resetn) begin
             aluResultOut <= 0;
             rdOut <= 0;

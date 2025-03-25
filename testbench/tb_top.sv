@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 `include "../top.sv"
 `include "../datapath.sv"
 `include "../MEM_WB.sv"

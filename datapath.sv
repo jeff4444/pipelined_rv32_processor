@@ -29,6 +29,12 @@ module datapath (
     output [4:0] rs1Id,
     output [4:0] rs2Id,
     output [4:0] rdEx,
+    output [4:0] rs1Ex,
+    output [4:0] rs2Ex,
+    output [4:0] rdMem,
+    output [4:0] rdWb,
+    output regWriteMemm,
+    output regWriteWbb,
     output pcsrc
 );
 
@@ -98,6 +104,12 @@ module datapath (
     assign rs1Id = rs1_id;
     assign rs2Id = rs2_id;
     assign rdEx = rd_ex;
+    assign rs1Ex = rs1_ex;
+    assign rs2Ex = rs2_ex;
+    assign rdMem = rd_mem;
+    assign rdWb = rd_wb;
+    assign regWriteMemm = regWriteMem;
+    assign regWriteWbb = regWriteWb;
     assign pcsrc = pcSrc;
     assign instruction = instruction_id;
 
@@ -179,7 +191,7 @@ module datapath (
         .imm(imm_ex),
         .selOp1(selOp1),
         .selOp2(selOp2),
-        .aluResultWb(aluResultWb),
+        .aluResultMem(aluResultMem),
         .wbResult(writeData),
         .ALUSrc(ALUSrcEx),
         .ALUOp(ALUOpEx),

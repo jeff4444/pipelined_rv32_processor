@@ -7,8 +7,8 @@ module write_back (
     output [31:0] writeData
 );
     mux_2_to_1 mux1 (
-        .op1(readData),
-        .op2(aluResult),
+        .op1(aluResult),
+        .op2(readData),
         .sel(memToReg),
         .out(writeData)
     );

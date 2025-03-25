@@ -10,7 +10,7 @@ module if_id (
 );
 
     // Always block
-    always @(posedge clk) begin
+    always @(posedge clk or negedge resetn) begin
         if (!resetn || IFflush) begin
             pc_out <= 32'h0;
             instruction_out <= 32'h0;

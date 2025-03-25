@@ -33,7 +33,7 @@ module id_ex (
     output reg regWriteOut
 );
     
-    always @(posedge clk) begin
+    always @(posedge clk or negedge resetn) begin
         if(!resetn) begin
             immOut <= 0;
             rs1DataOut <= 0;

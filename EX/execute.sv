@@ -9,7 +9,7 @@ module instruction_execute (
     input [1:0] selOp2,
 
     // input signals from forwarding
-    input [31:0] aluResultWb,
+    input [31:0] aluResultMem,
     input [31:0] wbResult,
 
     // input control signals for ex
@@ -27,15 +27,15 @@ module instruction_execute (
     mux_4_to_1 mux1 (
         .op1(rs1Data),
         .op2(wbResult),
-        .op3(aluResultWb),
+        .op3(aluResultMem),
         .op4(32'h0),
         .sel(selOp1),
         .out(aluOp1)
     );
 
     mux_2_to_1 mux2 (
-        .op1(imm),
-        .op2(rs2Data),
+        .op1(rs2Data),
+        .op2(imm),
         .sel(ALUSrc),
         .out(immORrs2)
     );
@@ -43,7 +43,7 @@ module instruction_execute (
     mux_4_to_1 mux3 (
         .op1(immORrs2),
         .op2(wbResult),
-        .op3(aluResultWb),
+        .op3(aluResultMem),
         .op4(32'h0),
         .sel(selOp2),
         .out(aluOp2)

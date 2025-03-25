@@ -10,17 +10,14 @@ module data_memory (
     
     reg [7:0] mem [0:1023];
     
-    always @(posedge clk) begin
+    always @(posedge clk or negedge resetn) begin
         if (!resetn) begin
             // Initialize memory
             for (integer i = 0; i < 1024; i = i + 1) begin
                 mem[i] <= 8'h00;
             end
-            // Load data 0x5 in address 0x0
-            mem[0] <= 8'h05;
-            mem[1] <= 8'h00;
-            mem[2] <= 8'h00;
-            mem[3] <= 8'h00;
+            // Load data 0x5 in address 0x1
+            mem[1] <= 8'h05;
         end else begin
             if (writeEnable) begin
                 mem[addr] <= writeData[7:0];
@@ -32,7 +29,8 @@ module data_memory (
     end
 
     always @(negedge clk) begin
-        readData <= readEnable ? {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]} : 32'b0;
+        if (resetn)
+            readData <= readEnable ? {mem[addr+3], mem[addr+2], mem[addr+1], mem[addr]} : 32'b0;
     end
     
 endmodule
