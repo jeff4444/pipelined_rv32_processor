@@ -142,7 +142,7 @@ module datapath (
         .instruction(instruction_id),
         .regWriteData(writeData),
         .writeReg(rd_wb),
-        .regWrite(regWrite),
+        .regWrite(regWriteWb),
         .rs1(rs1_id),
         .rs2(rs2_id),
         .rd(rd_id),

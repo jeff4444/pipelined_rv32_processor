@@ -37,10 +37,9 @@ module registers (
                 regFile[i] <= 0;
             end
         end else begin
+            // $display("Attempting to write writeData = %h, location = %h, regWrite = %h, time =  %0t", writeData, writeReg, regWrite, $time);
             if (regWrite && writeReg != 0) begin
-                if (writeReg == 1) begin
-                    $display("writeData = %h, location = %h, time =  %0t", writeData, writeReg, $time);
-                end
+                // $display("writeData = %h, location = %h, time =  %0t", writeData, writeReg, $time);
                 regFile[writeReg] <= writeData;
             end
         end
@@ -49,10 +48,17 @@ module registers (
     always @(negedge clk) begin
         // if readReg1 is 1, display regFile[1] and time
         if (resetn) begin
-            $display("readData1 = %h %t", regFile[readReg1], $time);
-            readData1 <= regFile[readReg1];
-            $display("readData2 = %h %t", regFile[readReg2], $time);
-            readData2 <= regFile[readReg2];
+            $display("readData1 = %h %h %h %t", readReg1, writeReg, writeData, $time);
+            if ((readReg1 == writeReg) & regWrite) begin
+                readData1 <= writeData;
+            end else begin
+                readData1 <= regFile[readReg1];
+            end
+            if ((readReg2 == writeReg) & regWrite) begin
+                readData2 <= writeData;
+            end else begin
+                readData2 <= regFile[readReg2];
+            end
         end
     end
     

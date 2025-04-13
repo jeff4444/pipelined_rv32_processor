@@ -26,6 +26,7 @@ module mem_wb (
             regWriteOut <= 0;
         end
         else begin
+             $display("About to write back %h at time %0t", readData, $time);
             readDataOut <= readData;
             aluResultOut <= aluResult;
             rdOut <= rd;
